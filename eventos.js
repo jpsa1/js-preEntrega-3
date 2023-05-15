@@ -39,15 +39,12 @@ function eventoAgregarProducto (e) {
 let btnListarProductos = document.querySelector("#btn-listarProductos")
 btnListarProductos.addEventListener("click", eventoListarProductos)
 
-function eventoListarProductos(e) {
-    e.preventDefault()
+function eventoListarProductos(evento) {
+    evento.preventDefault()
 
     listarProductos(productos, "productos")
    
     controlBotones()
-
-    //Guarda en el LocalStorage
-    local_Storage("guardar")
     
 }
 
@@ -60,9 +57,7 @@ function eventoEliminarProductos(evento) {
     evento.preventDefault()
 
     let elementoSeleccionado = document.querySelector("#selectorItem").selectedIndex
-    console.log('Elemento seleccionado: ' + elementoSeleccionado)
     
-
     eliminarProductos(productos, "productos", elementoSeleccionado)
 
     //Vuelve a listar los productos para que se actualice la lista
@@ -83,6 +78,8 @@ function eventoAgregarCarrito(evento) {
     let elementoSeleccionado = document.querySelector("#selectorItem").selectedIndex
     
     agregarAlCarrito(elementoSeleccionado)
+
+    listarProductos(productos, "productos")
 
     controlBotones()
 

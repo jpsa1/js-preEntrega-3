@@ -1,4 +1,3 @@
-//Corregir: Genera error cuando tengo dos unidades de stock del producto y trato de eliminar la ultima unidad (en el carrito)
 
 // **** Opcion 1: Agregar Productos ****
 
@@ -27,24 +26,25 @@ function listarProductos(lista,tipo) {
         return alert('No hay productos cargados')
     }
 
-
-    
-        for (const elemento of lista) {
-            let opcion = document.createElement("option")
-            
-            if (tipo == "productos") {
-                opcion.innerText = `${elemento.nombre} | Precio: ${elemento.precio} | Stock: ${elemento.stock} | Descripcion: ${elemento.descripcion}`
-                document.querySelector("#leyendaListado").innerText = "LISTADO DE PRODUCTOS"
-            }
-            else {
-                opcion.innerText = `${elemento.nombre} | Precio: ${elemento.precio} | Descripcion: ${elemento.descripcion}` 
-                document.querySelector("#leyendaListado").innerText = "LISTADO DEL CARRITO"
-            }
-            
-                opcion.className = "opcion" //Designo la clase para que funcione cuando vacio el listado
-            console.log(opcion)
-            elementos.appendChild(opcion)
+    // Lista los productos/carritos
+    for (const elemento of lista) {
+        let opcion = document.createElement("option")
+        
+        if (tipo == "productos") {
+            opcion.innerText = `${elemento.nombre} | Precio: ${elemento.precio} | Stock: ${elemento.stock} | Descripcion: ${elemento.descripcion}`
+            document.querySelector("#leyendaListado").innerText = "LISTADO DE PRODUCTOS"
         }
+        else {
+            opcion.innerText = `${elemento.nombre} | Precio: ${elemento.precio} | Descripcion: ${elemento.descripcion}` 
+            document.querySelector("#leyendaListado").innerText = "LISTADO DEL CARRITO"
+        }
+        
+        opcion.className = "opcion" //Designo la clase para que funcione cuando vacio el listado
+        elementos.appendChild(opcion)
+    }
+
+    //Guarda en el LocalStorage
+    local_Storage("guardar")
 
 } 
 
@@ -74,7 +74,6 @@ function eliminarProductos(lista,tipo,elementoSeleccionado) {
 
         lista.splice(elementoSeleccionado,1)
 
-        alert('Producto ELIMINADO existosamente')
     }
 }
 
@@ -86,8 +85,7 @@ function eliminarProductos(lista,tipo,elementoSeleccionado) {
             return alert('Tiene que seleccionar un item')
         }
                 
-        console.log(elementoSeleccionado)
-                
+                        
         if (isNaN(elementoSeleccionado)) {
             return alert("No selecciono ninguna opción")
         }
@@ -123,12 +121,21 @@ function eliminarItemCarrito(elementoSeleccionado) {
 
 function vaciarCarrito() {
     
+    //Aumenta el stock en array productos de los items que se borran del carrito    
+    carrito.forEach((elementoCarrito, i) => {
+        productos.forEach((elementoProductos, i) => {
+            elementoCarrito.nombre === elementoProductos.nombre && elementoProductos.stock++
+        })        
+    })
+        
+    carrito.splice(0,carrito.length)
+
     //Cambia la leyenda a carrito
     document.querySelector("#leyendaListado").innerText = "LISTADO DEL CARRITO"
+           
+    };
 
-    carrito.splice(0,carrito.length)
-}
-
+    
 
 // CONTROLADOR DE BOTONES
 
@@ -160,8 +167,6 @@ function controlBotones() {
         btnEliminarItemCarrito.disabled = false
         btnVaciarCarrito.disabled = false
     }
-
-    console.log(elementoSeleccionado)
     
     if (elementoSeleccionado.length == 0) {
         btnEliminarProductos.disabled = true
