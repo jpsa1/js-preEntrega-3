@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Boostrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="./style.css">
+
+    <title>PreEntrega3+Milanese</title>
+
+</head>
+<body>
+    <!-- ************* HEADER ************* -->
+    <header>
+
+    </header>
+    
+    <!-- ************* MAIN ************* -->
+    <main>
+      <section class="caja-principal estiloCajas">    
+        <div class="caja-titulos">
+          <h1>CARRITO DE COMPRAS</h1>
+          <h5>Construido por: Juan Pablo Mialnese</h5>
+        </div>
+        
+        <div class="cajaIngresoDatos estiloCajas">
+          <form>
+              <div class="form-group">
+                <input type="text" class="form-control" id="textNombre" aria-describedby="emailHelp" placeholder="Nombre">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" id="textDescripcion" placeholder="Agregue una Descripcion">
+              </div>
+              <div class="form-group">
+                  <input type="text" class="form-control" id="textPrecio" placeholder="Agregue un precio">
+              </div>
+              <div class="form-group">
+                  <input type="text" class="form-control" id="textStock" placeholder="Agregue el stock">
+              </div>
+              <button type="submit" class="btn btn-primary estiloCajas" id="btn-agregarProducto">AGREGAR</button>
+          </form>
+        </div>
+        
+        <!-- LISTADO DE PRODUCTOS -->
+        
+        <div class="caja-pantalla estiloCajas">
+          <div class="form-group" id="listarItem">
+              <label for="exampleFormControlSelect2" id="leyendaListado">Listado de productos</label>
+              <select multiple class="form-control" id="selectorItem">
+
+              </select>
+          </div>
+        </div>
+
+        <!-- BOTONES -->
+        
+        <div class="caja-btn estiloCajas">
+
+          <button type="submit" class="btn btn-primary estiloCajas" id="btn-listarProductos">LISTAR PRODUCTOS</button>
+
+          <button type="submit" class="btn btn-primary estiloCajas" id="btn-eliminarProductos">ELIMINAR PRODUCTOS</button>
+
+          <button type="submit" class="btn btn-primary estiloCajas" id="btn-agregarCarrito">AGREGAR AL CARRITO</button>
+
+          <button type="submit" class="btn btn-primary estiloCajas" id="btn-listarCarrito">LISTAR CARRITO</button>
+
+          <button type="submit" class="btn btn-primary estiloCajas" id="btn-eliminarItemCarrito">ELIMINAR ITEM CARRITO</button>
+
+          <button type="submit" class="btn btn-primary estiloCajas" id="btn-vaciarCarrito">VACIAR CARRITO</button>
+
+        </div>
+      </section>
+    </main>
+
+    <!-- ************* FOOTER ************* -->
+    <footer>
+
+    </footer>
+    
+    
+ 
+
+    <script src="./menu.js"></script>
+    <script src="./constructor.js"></script>
+    <script src="./funciones.js"></script>
+    <script src="./app.js"></script>
+    <script src="./eventos.js"></script>
+
+    <!-- BOOSTRAP -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
+
+  </body>
+</html>

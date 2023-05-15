@@ -1,0 +1,121 @@
+body{
+    background-color: lightyellow;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ;
+
+
+}
+h5{color: rgb(200, 0, 255);}
+
+/* Centrar todo en el medio */
+main {
+    display: flex;
+    justify-content: center;
+}
+
+
+.caja-principal {
+
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto auto;
+
+    column-gap: 10px;
+    row-gap: 10px;
+
+    grid-template-areas:  
+        "titulos titulos"
+        "botones ingresoDatos"
+        "botones pantalla"
+    ;
+    justify-content: center;
+
+    width: 100%;
+    max-width: 800px;
+    border: 1px solid black;
+    margin: 20px;
+    padding: 20px;
+    background-color: lightgray;
+
+}
+
+.caja-titulos {
+    text-align: center;
+       
+    grid-area: titulos;
+}
+
+.cajaIngresoDatos {
+    background-color: beige;
+    padding: 20px;
+    border: 1px solid black;
+    
+  
+    grid-area: ingresoDatos;
+}
+
+
+
+.caja-pantalla {
+    background-color: lightpink;
+    padding: 10px;
+    text-align: center;
+
+    grid-area: pantalla;
+
+    /* border-radius: 15px; */
+}
+
+.caja-pantalla select {
+    height: 200px;
+    overflow: scroll;
+}
+
+
+.caja-btn {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    background-color: rgb(144, 144, 123);
+    padding: 10px;
+    
+
+    grid-area: botones;
+
+}
+
+.btn {
+    margin: 5px;
+}
+
+.estiloCajas {
+    box-shadow: 2px 2px 5px #888;
+    border: 1px solid black;
+    border-radius: 5px;
+
+}
+
+
+    /* Estilos a aplicar para dispositivos con ancho máximo de 767px (teléfonos celulares) */
+
+@media (max-width: 767px) {
+    .caja-principal {
+
+
+        grid-template-columns: auto;
+        grid-template-rows: auto auto auto auto;
+       
+        grid-template-areas:  
+            "titulos"
+            "pantalla"
+            "botones "
+            "ingresoDatos"
+        ;
+
+        border: 0px
+    }
+
+
+  }
+  
