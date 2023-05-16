@@ -24,8 +24,8 @@ main {
 
     grid-template-areas:  
         "titulos titulos"
-        "botones ingresoDatos"
         "botones pantalla"
+        "botones ingresoDatos"
     ;
     
     justify-content: center;

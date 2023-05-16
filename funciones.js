@@ -36,7 +36,7 @@ function listarProductos(lista,tipo) {
         }
         else {
             opcion.innerText = `${elemento.nombre} | Precio: $ ${elemento.precio} | Descripcion: ${elemento.descripcion}` 
-            document.querySelector("#leyendaListado").innerText = "LISTADO DEL CARRITO"
+            document.querySelector("#leyendaListado").innerHTML = "<u><strong>CARRITO</strong></u>"
         }
         
         opcion.className = "opcion" //Designo la clase para que funcione cuando vacio el listado
