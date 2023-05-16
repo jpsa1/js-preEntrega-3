@@ -31,11 +31,11 @@ function listarProductos(lista,tipo) {
         let opcion = document.createElement("option")
         
         if (tipo == "productos") {
-            opcion.innerText = `${elemento.nombre} | Precio: ${elemento.precio} | Stock: ${elemento.stock} | Descripcion: ${elemento.descripcion}`
+            opcion.innerText = `${elemento.nombre} | Precio: $ ${elemento.precio} | Stock: ${elemento.stock} | Descripcion: ${elemento.descripcion}`
             document.querySelector("#leyendaListado").innerText = "LISTADO DE PRODUCTOS"
         }
         else {
-            opcion.innerText = `${elemento.nombre} | Precio: ${elemento.precio} | Descripcion: ${elemento.descripcion}` 
+            opcion.innerText = `${elemento.nombre} | Precio: $ ${elemento.precio} | Descripcion: ${elemento.descripcion}` 
             document.querySelector("#leyendaListado").innerText = "LISTADO DEL CARRITO"
         }
         
@@ -73,6 +73,8 @@ function eliminarProductos(lista,tipo,elementoSeleccionado) {
         }
 
         lista.splice(elementoSeleccionado,1)
+
+        local_Storage("guardar")
 
     }
 }
@@ -189,9 +191,15 @@ function local_Storage(accion) {
             let productosAlmacenados = JSON.parse(localStorage.getItem("productos"))
             let carritoAlmacenado = JSON.parse(localStorage.getItem("carrito"))
 
+            // Si el storage esta vacio, devuelve un array vacio tanto para carrito como para productos
+            productosAlmacenados = productosAlmacenados ?? []
+            carritoAlmacenado = carritoAlmacenado ?? []
+
+            //Para asegurarse que no tienen ningun elemento. 
             productos.length = 0
             carrito.length = 0
             
+            //Cargo en los arrays lo almacenado en Storage
             for (const item of productosAlmacenados)
                 productos.push(new producto(item.nombre, item. descripcion, item.precio, item.stock))
             for (const item of carritoAlmacenado)
