@@ -14,5 +14,3 @@ local_Storage("leer")
 listarProductos(productos, "productos")
 
 controlBotones()
-
-

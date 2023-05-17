@@ -1,13 +1,24 @@
-
-
-// **** 1 - AGREGAR PRODUCTOS ****
+// **** AGREGAR ****
 
 let btnAgregarProducto = document.querySelector("#btn-agregarProducto")
 btnAgregarProducto.addEventListener("click", eventoAgregarProducto)
 
-function eventoAgregarProducto (e) {
+function eventoAgregarProducto (evento) {
     // Previene la recarga de la pagina.
-    e.preventDefault()
+    evento.preventDefault()
+
+    visualCajaIngresoDatos('mostrar')
+}
+
+
+// **** 1 - AGREGAR PRODUCTOS ****
+
+let btnAgregar = document.querySelector("#btn-agregar")
+btnAgregar.addEventListener("click", eventoAgregar)
+
+function eventoAgregar (evento) {
+    // Previene la recarga de la pagina.
+    evento.preventDefault()
     
     let textNombre = document.querySelector("#textNombre").value
     let textDescripcion = document.querySelector("#textDescripcion").value
@@ -24,7 +35,9 @@ function eventoAgregarProducto (e) {
         textDescripcion = document.querySelector("#textDescripcion").value = ""
         textPrecio = document.querySelector("#textPrecio").value = ""
         textStock = document.querySelector("#textStock").value = ""
-    
+        
+        //Oculta la caja de agregar productos
+        visualCajaIngresoDatos('ocultar')
     }
 
     // Actualiza la lista

@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
     <!-- Boostrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     
@@ -22,18 +24,18 @@
     
     <!-- ************* MAIN ************* -->
     <main>
-      <section class="caja-principal estiloCajas">    
+      <section id="ID-caja-principal" class="caja-principal estiloCajas">    
         <div class="caja-titulos">
           <h1>CARRITO DE COMPRAS</h1>
-          <img src="./Imagenes/imagen-carrito.png" alt="imagen de logo">
+          <img class="animate__animated animate__bounce" src="./Imagenes/imagen-carrito.png" alt="imagen de logo">
 
           
         </div>
         
-        <div class="cajaIngresoDatos estiloCajas">
+        <div id="ID-cajaIngresoDatos" class="cajaIngresoDatos estiloCajas animate__animated animate__zoomIn">
           <form>
               <div class="form-group">
-                <input type="text" class="form-control" id="textNombre" aria-describedby="emailHelp" placeholder="Nombre">
+                <input type="text" class="form-control" id="textNombre" aria-describedby="emailHelp" placeholder="Nombre de producto">
               </div>
               <div class="form-group">
                 <input type="text" class="form-control" id="textDescripcion" placeholder="Agregue una Descripcion">
@@ -44,8 +46,9 @@
               <div class="form-group">
                   <input type="text" class="form-control" id="textStock" placeholder="Agregue el stock">
               </div>
-              <button type="submit" class="btn btn-primary estiloCajas" id="btn-agregarProducto">AGREGAR PRODUCTO</button>
-          </form>
+              <button type="submit" class="btn btn-primary estiloCajas" id="btn-agregar">AGREGAR</button>
+              <button type="submit" class="btn btn-primary estiloCajas" id="btn-cancelar">CANCELAR</button>
+            </form>
         </div>
         
         <!-- LISTADO DE PRODUCTOS -->
@@ -57,11 +60,17 @@
 
               </select>
           </div>
+
+          <div>
+            <h4 id="totalCarrito" >TOTAL CARRITO: $ 0</h4>
+          </div>
+          
         </div>
 
         <!-- BOTONES -->
         
         <div class="caja-btn estiloCajas">
+          <button type="submit" class="btn btn-primary estiloCajas" id="btn-agregarProducto">AGREGAR PRODUCTO</button>
 
           <button type="submit" class="btn btn-primary estiloCajas" id="btn-listarProductos">LISTAR PRODUCTOS</button>
 
@@ -82,7 +91,7 @@
     <!-- ************* FOOTER ************* -->
     <footer>
       <div>
-        <h5>Construido por: Juan Pablo Mialnese</h5>
+        <h5>Construido por: Juan Pablo Milanese</h5>
       </div>
     </footer>
     
@@ -92,8 +101,10 @@
     <script src="./menu.js"></script>
     <script src="./constructor.js"></script>
     <script src="./funciones.js"></script>
-    <script src="./app.js"></script>
     <script src="./eventos.js"></script>
+    <script src="./visibilidad.js"></script>
+    <script src="./controlBotones.js"></script>
+    <script src="./app.js"></script>
 
     <!-- BOOSTRAP -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
