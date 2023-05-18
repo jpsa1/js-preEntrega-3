@@ -62,7 +62,7 @@ main {
   
     grid-area: ingresoDatos;
 
-    /*  */
+    /* No se muestra */
     display: none;
     position: absolute;
     top: 20%;
@@ -115,20 +115,25 @@ main {
 
 }
 
+.copyright{
+    text-align: center;
+}
+
+
 
     /* Estilos a aplicar para dispositivos con ancho máximo de 767px (teléfonos celulares) */
 
 @media (max-width: 767px) {
     .caja-principal {
         grid-template-columns: auto;
-        grid-template-rows: auto auto auto auto auto;
+        grid-template-rows: auto auto auto auto;
        
         grid-template-areas:  
             "logo"
             "titulos"
             "pantalla"
             "botones "
-            "ingresoDatos"
+            
         ;
 
         border: 0px;
@@ -138,6 +143,7 @@ main {
 
     .cajaIngresoDatos, .caja-pantalla {
         width: auto;
+
     } 
 
   }

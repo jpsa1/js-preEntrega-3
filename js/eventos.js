@@ -26,7 +26,7 @@ function eventoAgregar (evento) {
     let textStock = document.querySelector("#textStock").value
 
     if (textNombre == "" || textDescripcion == "" || textPrecio == 0 || textStock == 0) {
-        alert('Algun dato fue mal ingresado. Intente nuevamente')
+        sweetAlert('error', 'Opss' ,'Algun dato fue mal ingresado. Intente nuevamente')
     }else{
         cargarProductos(textNombre, textDescripcion, textPrecio, textStock)
         

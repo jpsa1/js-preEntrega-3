@@ -16,9 +16,12 @@ function controlBotones() {
     if (productos.length == 0) {
         btnEliminarProductos.disabled = true
         btnAgregarCarrito.disabled = true
+        
+        btnListarProductos.disabled = true
     }else {
         btnEliminarProductos.disabled = false
         btnAgregarCarrito.disabled = false
+        btnListarProductos.disabled = false
     }
 
     if (carrito.length == 0) {
@@ -51,6 +54,6 @@ function controlBotones() {
         cajaIngresoDatos.disabled = true
     } else {
         btnAgregarProducto.disabled = false
-        btnListarProductos.disabled = false
+        // btnListarProductos.disabled = false
     }
 }

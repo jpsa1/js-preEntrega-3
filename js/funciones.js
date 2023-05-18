@@ -23,7 +23,7 @@ function listarProductos(lista,tipo) {
         if (tipo == "productos") {document.querySelector("#leyendaListado").innerText = "LISTADO DE PRODUCTOS"}
         else {document.querySelector("#leyendaListado").innerText = "LISTADO DEL CARRITO"}
                 
-        return alert('No hay productos cargados')
+        return sweetAlert('info', 'Opss' ,'No hay productos cargados')
     }
 
     // Lista los productos/carritos
@@ -57,13 +57,14 @@ function eliminarProductos(lista,tipo,elementoSeleccionado) {
     
     // Antes de eliminar un producto, primero hay que asegurarse que no haya productos en el carrito
     if (tipo == "productos" && carrito.length != 0) {
-        alert('Antes de eliminar un producto de la tienda, tiene que VACIAR el carrito.')
+        sweetAlert('error','Antes de eliminar un producto de la tienda', 'tiene que VACIAR el carrito.' )        
         return
     }
     
     
     if (elementoSeleccionado < 0 || elementoSeleccionado > (lista.length - 1)) {
-        alert('Tiene que seleccionar un item')
+        sweetAlert('error','Tiene que seleccionar un item', '' )        
+
     }else {
         //Si lo que se elimina es un elemento del carrito, entonces sube el stock de la tienda 
         if (tipo =="carrito") {
@@ -86,19 +87,20 @@ function eliminarProductos(lista,tipo,elementoSeleccionado) {
     function agregarAlCarrito (elementoSeleccionado) {
         
         if (elementoSeleccionado < 0) {
-            return alert('Tiene que seleccionar un item')
+            return sweetAlert('error','Tiene que seleccionar un item', '' ) 
         }
                 
                         
         if (isNaN(elementoSeleccionado)) {
-            return alert("No selecciono ninguna opción")
+            return sweetAlert('error','No selecciono ninguna opción', '' )   
         }
 
         if (productos[elementoSeleccionado].stock > 0) {
             carrito.push(productos[elementoSeleccionado]) // Agrega el producto al carrito
             productos[elementoSeleccionado].stock-- //Disminuye en 1 unidad el stock de los productos
         }else {
-            alert("No hay stock del producto")
+            sweetAlert('info','No hay stock del producto', '' )   
+
         }
         
     }
